@@ -44,12 +44,26 @@ class CoffeeMachineTest {
     }
 
     @Test
-    void testFill(){
+    void testFill1(){
         CoffeeMachine machine = new CoffeeMachine(400, 540, 120, 9, 550);
         machine.fill(100, 100, 100, 100);
-        Assertions.assertEquals(220, machine.getBeans());
-        Assertions.assertEquals(640, machine.getMilk());
-        Assertions.assertEquals(500, machine.getWater());
-        Assertions.assertEquals(109, machine.getCups());
+        Assertions.assertEquals(120, machine.getBeans());
+        Assertions.assertEquals(540, machine.getMilk());
+        Assertions.assertEquals(400, machine.getWater());
+        Assertions.assertEquals(9, machine.getCups());
+    }
+
+    @Test
+    void testFill2(){
+        CoffeeMachine machine = new CoffeeMachine(400, 540, 120, 9, 550);
+        machine.setBeans(50);
+        machine.setMilk(50);
+        machine.setCups(1);
+        machine.setWater(50);
+        machine.fill(100, 100, 30, 5);
+        Assertions.assertEquals(80, machine.getBeans());
+        Assertions.assertEquals(150, machine.getMilk());
+        Assertions.assertEquals(150, machine.getWater());
+        Assertions.assertEquals(6, machine.getCups());
     }
 }
